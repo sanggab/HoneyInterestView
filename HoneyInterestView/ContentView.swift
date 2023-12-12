@@ -25,6 +25,7 @@ public struct ContentView: View {
         NavigationView {
             VStack(spacing: 0) {
 
+                /// 스크롤처럼 올라가는게 안보임.. 
                 ZStack(alignment: .topLeading) {
                     Text("honey")
                         .padding(.top, 6)
