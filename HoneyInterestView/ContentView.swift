@@ -44,7 +44,7 @@ public struct ContentView: View {
                         ForEach(diclist[key] ?? [], id: \.self) { value in
                             LikeHistoryListCell(name: value)
                                 .cornerRadius(12)
-                                .shadow(color: Color(r: 0, g: 0, b: 0, a: 0.08), radius: 12, x: 0, y: 2)
+                                .shadow(color: Color(white: 0.0, opacity: 0.08), radius: 4.0, x: 0.0, y: 2.0)
                                 .onTapGesture {
                                     print("value -> \(value)")
                                 }

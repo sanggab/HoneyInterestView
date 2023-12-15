@@ -48,7 +48,6 @@ public struct LikeHistoryToggleView: View {
                     type = .received
                 }
                 
-                
                 ZStack(alignment: .bottom) {
                     Rectangle()
                         .fill(.gray)
@@ -62,6 +61,9 @@ public struct LikeHistoryToggleView: View {
                         
                     }
                     .frame(maxWidth: .infinity, alignment: type == .match ? .bottomLeading : .bottomTrailing)
+                }
+                .onChange(of: type) { newValue in
+                    print(newValue)
                 }
                 
             }
