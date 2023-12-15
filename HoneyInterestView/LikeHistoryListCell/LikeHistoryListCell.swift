@@ -118,7 +118,6 @@ struct LikeHistoryListCell: View {
                 .frame(width: 62)
                 .frame(maxHeight: .infinity, alignment: .topTrailing)
                 .background(.blue)
-                
             }
         }
         .frame(height: 115)

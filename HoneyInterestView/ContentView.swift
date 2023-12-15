@@ -38,25 +38,27 @@ public struct ContentView: View {
                 LikeStickyHeaderView()
             }
         }, content: {
-
             LazyVStack(spacing: 12) {
                 ForEach(Array(diclist.keys), id: \.self) { key in
                     Section {
                         ForEach(diclist[key] ?? [], id: \.self) { value in
                             LikeHistoryListCell(name: value)
+                                .cornerRadius(12)
+                                .shadow(color: Color(r: 0, g: 0, b: 0, a: 0.08), radius: 12, x: 0, y: 2)
+                                .onTapGesture {
+                                    print("value -> \(value)")
+                                }
                         }
                     } header: {
                         SectionDateCell(date: key)
                     }
-
                 }
             }
             .padding(.top, 16)
             .padding(.horizontal, 12)
-
         })
         .height(min: minHeight, max: maxHeight)
-        .background(.gray)
+        .background(Color(r: 245, g: 245, b: 245, a: 1.0))
         .padding(.vertical)
         .onAppear {
             test()

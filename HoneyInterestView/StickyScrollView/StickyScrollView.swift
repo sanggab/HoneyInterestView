@@ -19,8 +19,8 @@ public struct StickyScrollView<Header: View, Content: View>: View {
     public var header: Header
     public var content: Content
     
-    public var maxHeight: CGFloat = 137
-    public var minHeight: CGFloat = 87
+    private var maxHeight: CGFloat = 137
+    private var minHeight: CGFloat = 87
     
     @State private var offsetY: CGFloat = 0
     
@@ -67,7 +67,7 @@ public struct StickyScrollView<Header: View, Content: View>: View {
         return maxHeight
     }
     
-    public func getScrollViewOffset() -> CGFloat {
+    private func getScrollViewOffset() -> CGFloat {
         return offsetY
     }
     

@@ -92,17 +92,17 @@ public struct LeadingAlignmnetView<FlowFeatures: FlowLayoutFeatures>: View {
 }
 
 struct TestFlowLayout<ContentView: View>: FlowLayoutFeatures {
-    typealias Element = String
+    typealias Element = LikeFilterCase
 
-    var data: [String]
+    var data: [LikeFilterCase]
     var dataSpacing: CGFloat
     var lineSpacing: CGFloat
-    var content: (String) -> ContentView
+    var content: (LikeFilterCase) -> ContentView
 
-    init(data: [String],
+    init(data: [LikeFilterCase],
          dataSpacing: CGFloat = 0,
          lineSpacing: CGFloat = 0,
-         @ViewBuilder content: @escaping (String) -> ContentView) {
+         @ViewBuilder content: @escaping (LikeFilterCase) -> ContentView) {
         self.data = data
         self.dataSpacing = dataSpacing
         self.lineSpacing = lineSpacing

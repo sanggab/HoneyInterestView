@@ -7,8 +7,15 @@
 
 import SwiftUI
 
+public enum LikeFilterCase: String {
+    case all = "ALL"
+    case near = "Near"
+    case online = "Online"
+}
+
 struct LikeStickyHeaderView: View {
-    @State private var dataList: [String] = ["ALL", "Near", "Online"]
+    @State private var dataList: [LikeFilterCase] = [.all, .near, .online]
+    @State private var filterCase: LikeFilterCase = .all
     
     var body: some View {
         VStack(spacing: 0) {
@@ -17,21 +24,22 @@ struct LikeStickyHeaderView: View {
                 .frame(height: 40)
             
             HStack(spacing: 0) {
-                LeadingAlignmnetView(features: TestFlowLayout(data: dataList, dataSpacing: 7, lineSpacing: 8.5, content: { text in
+                LeadingAlignmnetView(features: TestFlowLayout(data: dataList, dataSpacing: 7, lineSpacing: 8.5, content: { data in
                     
-                    Text(text)
+                    Text(data.rawValue)
                         .padding(.vertical, 3.5)
                         .padding(.horizontal, 11.5)
-                        .foregroundColor(.black)
-                        .background(.yellow)
+                        .foregroundColor(data == filterCase ? .black : .gray)
+                        .background(data == filterCase ? .yellow : .white)
                         .cornerRadius(10)
                         .overlay(content: {
                             RoundedRectangle(cornerRadius: 10)
                                 .stroke(lineWidth: 1)
-                                .foregroundColor(.black)
+                                .foregroundColor(data == filterCase ? .black : .gray)
                         })
                         .onTapGesture {
-                            print(text)
+                            print("filter touch -> \(data)")
+                            filterCase = data
                         }
                 }))
                 .padding(.vertical, 8.5)
@@ -39,11 +47,7 @@ struct LikeStickyHeaderView: View {
                 Spacer()
                 
                 Button {
-                    let randomString: [String] = ["안녕", "새로운 케이스", "오늘은 12월 8일 금요일", "12월11일 연차"]
-                    print("웹뷰로 보내라")
-                    
-                    dataList.append(randomString.randomElement() ?? "")
-                    
+                    print("알림설정 드가자")
                 } label: {
                     Image("icoNoDisturb")
                 }
