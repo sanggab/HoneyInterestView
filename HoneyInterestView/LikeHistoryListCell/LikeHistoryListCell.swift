@@ -10,6 +10,7 @@ import SwiftUI
 struct LikeHistoryListCell: View {
     public var isConnected: Bool = false
     public var count: Int = 0
+    public var name : String = "하잉!"
     
     var body: some View {
         ZStack {
@@ -61,7 +62,7 @@ struct LikeHistoryListCell: View {
                         .frame(alignment: .topLeading)
                     
                     HStack {
-                        Text("Alex PopeAlex PopeAlex PopeAlex PopeAlex PopeAlex Pope")
+                        Text(name)
                             .foregroundColor(.blue)
                             .font(.system(size: 15))
                             .lineLimit(1)

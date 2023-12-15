@@ -11,7 +11,6 @@ struct LikeStickyHeaderView: View {
     @State private var dataList: [String] = ["ALL", "Near", "Online"]
     
     var body: some View {
-        
         VStack(spacing: 0) {
             
             LikeHistoryToggleView()
@@ -26,7 +25,11 @@ struct LikeStickyHeaderView: View {
                         .foregroundColor(.black)
                         .background(.yellow)
                         .cornerRadius(10)
-                        .overlay(RoundedRectangle(cornerRadius: 10).stroke(lineWidth: 1).foregroundColor(.black))
+                        .overlay(content: {
+                            RoundedRectangle(cornerRadius: 10)
+                                .stroke(lineWidth: 1)
+                                .foregroundColor(.black)
+                        })
                         .onTapGesture {
                             print(text)
                         }

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EFB8AD962B2AF90A0053A75B /* StickyScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB8AD952B2AF90A0053A75B /* StickyScrollView.swift */; };
+		EFB8AD982B2BDD880053A75B /* SectionDateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB8AD972B2BDD880053A75B /* SectionDateCell.swift */; };
 		EFCEB2E72B1F0B5F00002D81 /* HoneyInterestViewApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCEB2E62B1F0B5F00002D81 /* HoneyInterestViewApp.swift */; };
 		EFCEB2E92B1F0B5F00002D81 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCEB2E82B1F0B5F00002D81 /* ContentView.swift */; };
 		EFCEB2EB2B1F0B6000002D81 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EFCEB2EA2B1F0B6000002D81 /* Assets.xcassets */; };
@@ -38,6 +40,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EFB8AD952B2AF90A0053A75B /* StickyScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickyScrollView.swift; sourceTree = "<group>"; };
+		EFB8AD972B2BDD880053A75B /* SectionDateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionDateCell.swift; sourceTree = "<group>"; };
 		EFCEB2E32B1F0B5F00002D81 /* HoneyInterestView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HoneyInterestView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFCEB2E62B1F0B5F00002D81 /* HoneyInterestViewApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoneyInterestViewApp.swift; sourceTree = "<group>"; };
 		EFCEB2E82B1F0B5F00002D81 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -102,6 +106,7 @@
 		EFCEB2E52B1F0B5F00002D81 /* HoneyInterestView */ = {
 			isa = PBXGroup;
 			children = (
+				EFF1695E2B29275F006ED527 /* StickyScrollView */,
 				EFF1695D2B27D807006ED527 /* Assets */,
 				EFF1695C2B27D800006ED527 /* Window */,
 				EFCEB3192B2004B600002D81 /* LikeHistoryListCell */,
@@ -168,6 +173,7 @@
 			children = (
 				EFCEB31E2B2159B600002D81 /* ProfileStateView */,
 				EFCEB31C2B20054200002D81 /* LikeHistoryListCell.swift */,
+				EFB8AD972B2BDD880053A75B /* SectionDateCell.swift */,
 			);
 			path = LikeHistoryListCell;
 			sourceTree = "<group>";
@@ -195,6 +201,14 @@
 			path = Assets;
 			sourceTree = "<group>";
 		};
+		EFF1695E2B29275F006ED527 /* StickyScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				EFB8AD952B2AF90A0053A75B /* StickyScrollView.swift */,
+			);
+			path = StickyScrollView;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -211,6 +225,8 @@
 			dependencies = (
 			);
 			name = HoneyInterestView;
+			packageProductDependencies = (
+			);
 			productName = HoneyInterestView;
 			productReference = EFCEB2E32B1F0B5F00002D81 /* HoneyInterestView.app */;
 			productType = "com.apple.product-type.application";
@@ -283,6 +299,8 @@
 				Base,
 			);
 			mainGroup = EFCEB2DA2B1F0B5F00002D81;
+			packageReferences = (
+			);
 			productRefGroup = EFCEB2E42B1F0B5F00002D81 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -327,7 +345,9 @@
 			files = (
 				EFCEB3122B1FF0A700002D81 /* LikeHistoryToggleView.swift in Sources */,
 				EFCEB31D2B20054200002D81 /* LikeHistoryListCell.swift in Sources */,
+				EFB8AD962B2AF90A0053A75B /* StickyScrollView.swift in Sources */,
 				EFCEB2E92B1F0B5F00002D81 /* ContentView.swift in Sources */,
+				EFB8AD982B2BDD880053A75B /* SectionDateCell.swift in Sources */,
 				EFCEB2E72B1F0B5F00002D81 /* HoneyInterestViewApp.swift in Sources */,
 				EFCEB31B2B20052C00002D81 /* LikeStickyHeaderView.swift in Sources */,
 				EFCEB3152B1FFAF700002D81 /* LeadingAlignmentView.swift in Sources */,

@@ -7,71 +7,67 @@
 
 import SwiftUI
 
-struct ScrollOffsetKey: PreferenceKey {
-       static var defaultValue: CGFloat = 0
-       static func reduce(value: inout CGFloat, nextValue: () -> CGFloat) {
-           value += nextValue()
-       }
-   }
-
 public struct ContentView: View {
+    
+    @State private var uiscrollView: UIScrollView?
     
     @State private var offsetY: CGFloat = 0
     @State private var scrollViewFrame: CGSize = CGSize(width: 0, height: 0)
     
+    private var maxHeight: CGFloat = 137
+    private var minHeight: CGFloat = 87
+    
     private var data: [String] = ["안뇽","안뇽2","안뇽3","안뇽4","안뇽5","안뇽6","안뇽7","안뇽8","안뇽9","안뇽10","안뇽11","안뇽12","안뇽13","안뇽14","안뇽15","안뇽16","안뇽17","안뇽18","안뇽19","안뇽20"]
     
+    private var sectionList = ["14-10-2022", "10-10-2022", "30-09-2022", "12-10-2022",]
+    
+    @State private var diclist: [String : [String]] = [:]
+    
     public var body: some View {
-        NavigationView {
+        StickyScrollView(header: {
             VStack(spacing: 0) {
-
-                /// 스크롤처럼 올라가는게 안보임.. 
                 ZStack(alignment: .topLeading) {
                     Text("honey")
                         .padding(.top, 6)
                         .padding(.leading, 10)
                 }
-                .frame(height: 50 - abs(offsetY))
-                .frame(maxWidth: .infinity, alignment: .topLeading)
+                .frame(height: 50, alignment: .top)
+                .frame(maxWidth: .infinity, alignment: .leading)
                 .background(.blue)
 
                 LikeStickyHeaderView()
+            }
+        }, content: {
 
-                ScrollView(showsIndicators: false) {
-                    LazyVStack(spacing: 12) {
-                        ForEach(data, id: \.self) { data in
-                            LikeHistoryListCell()
+            LazyVStack(spacing: 12) {
+                ForEach(Array(diclist.keys), id: \.self) { key in
+                    Section {
+                        ForEach(diclist[key] ?? [], id: \.self) { value in
+                            LikeHistoryListCell(name: value)
                         }
+                    } header: {
+                        SectionDateCell(date: key)
                     }
-                    .overlay {
-                        GeometryReader { proxy in
-                            let offsetY = proxy.frame(in: .named("MyScrollView")).origin.y
-                            
-                            Color.clear.preference(key: ScrollOffsetKey.self, value: offsetY)
-                                .onAppear {
-                                    scrollViewFrame = proxy.frame(in: .named("MyScrollView")).size
-                                }
-                        }
-                    }
-                }
-                .coordinateSpace(name: "MyScrollView")
-                .padding(.horizontal, 12)
-                .background {
-                    Color(uiColor: UIColor(red: 245 / 255, green: 245 / 255, blue: 245 / 255, alpha: 1.0))
-                }
-                .onPreferenceChange(ScrollOffsetKey.self) { value in
-                    print("offsetY -> \(offsetY)")
-                    if value <= 0 {
-                        let newOffsetY = min(abs(value), 50)
-                        offsetY = -newOffsetY
-                    } else {
-                        offsetY = 0
-                    }
+
                 }
             }
-            .background(.white)
-            .padding(.vertical)
+            .padding(.top, 16)
+            .padding(.horizontal, 12)
+
+        })
+        .height(min: minHeight, max: maxHeight)
+        .background(.gray)
+        .padding(.vertical)
+        .onAppear {
+            test()
         }
+    }
+    
+    func test() {
+        diclist.updateValue(["안뇽","안뇽2","안뇽3","안뇽4","안뇽5"], forKey: "14-10-2022")
+        diclist.updateValue(["안뇽6","안뇽7","안뇽8"], forKey: "12-10-2022")
+        diclist.updateValue(["안뇽9","안뇽10","안뇽11","안뇽12","안뇽13","안뇽14"], forKey: "10-10-2022")
+        diclist.updateValue(["안뇽15","안뇽16","안뇽17","안뇽18","안뇽19","안뇽20"], forKey: "30-09-2022")
     }
 }
 
