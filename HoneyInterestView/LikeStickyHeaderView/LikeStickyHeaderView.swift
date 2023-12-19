@@ -14,7 +14,7 @@ public enum LikeFilterCase: String {
 }
 
 struct LikeStickyHeaderView: View {
-    @State private var dataList: [LikeFilterCase] = [.all, .near, .online]
+    @State private var dataList: [LikeFilterCase] = [.all, .near, .online, .all, .all, .near]
     @State private var filterCase: LikeFilterCase = .all
     
     var body: some View {

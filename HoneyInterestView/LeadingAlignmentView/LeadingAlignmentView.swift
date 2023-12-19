@@ -85,6 +85,7 @@ public struct LeadingAlignmnetView<FlowFeatures: FlowLayoutFeatures>: View {
             }
         )
         .onPreferenceChange(SizePreferenceKey.self) { size in
+            print(size)
             frameSize = size
         }
             

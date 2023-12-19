@@ -14,8 +14,8 @@ public struct ContentView: View {
     @State private var offsetY: CGFloat = 0
     @State private var scrollViewFrame: CGSize = CGSize(width: 0, height: 0)
     
-    private var maxHeight: CGFloat = 137
-    private var minHeight: CGFloat = 87
+    @State private var maxHeight: CGFloat = 137
+    @State private var minHeight: CGFloat = 87
     
     private var data: [String] = ["안뇽","안뇽2","안뇽3","안뇽4","안뇽5","안뇽6","안뇽7","안뇽8","안뇽9","안뇽10","안뇽11","안뇽12","안뇽13","안뇽14","안뇽15","안뇽16","안뇽17","안뇽18","안뇽19","안뇽20"]
     
@@ -60,6 +60,13 @@ public struct ContentView: View {
         .height(min: minHeight, max: maxHeight)
         .background(Color(r: 245, g: 245, b: 245, a: 1.0))
         .padding(.vertical)
+        .onPreferenceChange(SizePreferenceKey.self, perform: { value in
+            print("size -> \(value)")
+            let filterHeight = value.height + 17
+            
+            maxHeight = filterHeight + 90
+            minHeight = filterHeight + 40
+        })
         .onAppear {
             test()
         }
